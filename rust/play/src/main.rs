@@ -1,11 +1,26 @@
-extern crate core;
-
+extern crate core; 
 use std::ops::Add;
-use core::fmt;
+use std::fmt;
 
 struct MyInt {
     x: u32,
     y: u32
+}
+
+enum Alpha {
+    A,
+    B,
+    C
+}
+
+impl ToString for Alpha {
+    fn to_string(&self) -> String {
+        match self {
+            &Alpha::A => "A".to_string(),
+            &Alpha::B => "B".to_string(),
+            &Alpha::C => "C".to_string(),
+        }
+    }
 }
 
 impl Add for MyInt {
@@ -61,5 +76,7 @@ fn main() {
     for (i,j) in (5..10).enumerate() {
         println!("i,j: {},{}", i, j);
     }
+
+    println!("{}", Alpha::A.to_string());
 }
 
